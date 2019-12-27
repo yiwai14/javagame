@@ -28,6 +28,12 @@ public class MGPanel extends JPanel {
     private BufferedImage[] imageMs = null;
     private int m = 0;
 
+    //mole time
+    private int timeM = 0;
+
+    //timer
+    private java.util.Timer timerThis = null;
+
     public MGPanel(){
         super();
 
@@ -59,6 +65,10 @@ public class MGPanel extends JPanel {
             InputStream isML01 = this.getClass().getResourceAsStream("M01.gif");
             imageMs[1] = ImageIO.read(isML01);
             isML01.close();
+
+            //timer
+            timerThis = new java.util.Timer();
+            timerThis.scheduleAtFixedRate(new TimerActionTimerTask(), 1000l, 16l);
 
         } catch (IOException e) {
             e.printStackTrace();
