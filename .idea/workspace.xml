@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/MGPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/MGPanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1577323136325</updated>
       <workItem from="1577323143557" duration="13166000" />
-      <workItem from="1577423719221" duration="2140000" />
+      <workItem from="1577423719221" duration="2257000" />
     </task>
     <servers />
   </component>
