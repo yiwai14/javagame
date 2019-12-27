@@ -1,2 +1,2 @@
 # java game
-This is personla project which is to build a simple game using java.
+This is a personal project which is to build a simple game using java.
