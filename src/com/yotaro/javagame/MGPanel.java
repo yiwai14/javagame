@@ -11,12 +11,22 @@ import java.io.InputStream;
 
 public class MGPanel extends JPanel {
     private MGMouseAdapter mgma = null;
-    private String message = null;
-    private int x = 0;
-    private int y = 0;
 
+    //hammer position
+    private int px = 0;
+    private int py = 0;
+
+    //mole position
+    private int mx = 0;
+    private int my = 0;
+
+    //hammer image
     private BufferedImage[] imagePHs = null;
     private int ph = 0;
+
+    //mole image
+    private BufferedImage[] imageMs = null;
+    private int m = 0;
 
     public MGPanel(){
         super();
@@ -28,15 +38,27 @@ public class MGPanel extends JPanel {
             super.addMouseListener(mgma);
             super.addMouseMotionListener(mgma);
 
-            //ピコピコハンマー
+            //hammer
             imagePHs = new BufferedImage[2];
-            InputStream is0 = this.getClass().getResourceAsStream("PHOO.gif");
-            imagePHs[0] = ImageIO.read(is0);
-            is0.close();
-            //ピコピコハンマー HIT
-            InputStream is1 = this.getClass().getResourceAsStream("PH01.gif");
-            imagePHs[1] = ImageIO.read(is1);
-            is1.close();
+            InputStream isPH00 = this.getClass().getResourceAsStream("PH00.gif");
+            imagePHs[0] = ImageIO.read(isPH00);
+            isPH00.close();
+
+            //hammer HIT
+            InputStream isPH01 = this.getClass().getResourceAsStream("PH01.gif");
+            imagePHs[1] = ImageIO.read(isPH01);
+            isPH01.close();
+
+            //mole
+            imageMs = new BufferedImage[2];
+            InputStream isML00 = this.getClass().getResourceAsStream("M00.gif");
+            imageMs[0] = ImageIO.read(isML00);
+            isML00.close();
+
+            //mole hit
+            InputStream isML01 = this.getClass().getResourceAsStream("M01.gif");
+            imageMs[1] = ImageIO.read(isML01);
+            isML01.close();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,59 +72,42 @@ public class MGPanel extends JPanel {
         g.setColor(Color.black);
         g.fillRect(0, 0, 800, 600);
 
-        g.drawImage(imagePHs[ph], x, y, 100, 100, this);
-
-        /*
-        if(message != null){
-            g.setColor(Color.yellow);
-            g.drawString(message, x, y);
-        }
-         */
+        g.drawImage(imageMs[m], mx, my, 100, 88, this);
+        g.drawImage(imagePHs[ph], px, py, 100, 100, this);
     }
 
     private class MGMouseAdapter extends MouseAdapter {
 
         public void mousePressed(MouseEvent me){
-            //message = "Mouse pressed";
-            //System.out.println(me);
             ph = 1;
-            x = me.getX();
-            y = me.getY();
+            px = me.getX() - 100;
+            py = me.getY() - 100;
+
+            if(px > mx - 50 && px < mx + 90 && py > my - 70 && py < my + 60){
+                m = 1;
+            }else{
+                m = 0;
+            }
             repaint();
         }
 
         public void mouseReleased(MouseEvent me){
-            //message = "Mouse released";
-            //System.out.println(me);
             ph = 0;
-            x = me.getX();
-            y = me.getY();
+            px = me.getX() - 100;
+            py = me.getY() - 100;
+            m = 0;
             repaint();
         }
-
-        /*
-        public void mouseClicked(MouseEvent me){
-            message = "Mouse clicked";
-            System.out.println(me);
-            x = me.getX();
-            y = me.getY();
-            repaint();
-        }
-         */
 
         public void mouseMoved(MouseEvent me){
-            //message = "Mouse moved";
-            //System.out.println(me);
-            x = me.getX();
-            y = me.getY();
+            px = me.getX() - 100;
+            py = me.getY() - 100;
             repaint();
         }
 
         public void mouseDragged(MouseEvent me){
-            //message = "Mouse dragged";
-            //System.out.println(me);
-            x = me.getX();
-            y = me.getY();
+            px = me.getX() - 100;
+            py = me.getY() - 100;
             repaint();
         }
     }

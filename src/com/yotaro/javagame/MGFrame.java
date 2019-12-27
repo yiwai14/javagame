@@ -3,7 +3,7 @@ package com.yotaro.javagame;
 import javax.swing.*;
 import java.awt.*;
 
-public class MGFrame extends JFrame{
+public class MGFrame extends JFrame {
 
     private MGPanel panel = null;
 
