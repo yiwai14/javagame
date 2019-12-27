@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.TimerTask;
 
 public class MGPanel extends JPanel {
     private MGMouseAdapter mgma = null;
@@ -74,8 +75,24 @@ public class MGPanel extends JPanel {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "ERROR: "+e.toString());
         }
+    }
 
+    private class TimerActionTimerTask extends TimerTask{
+        public void run(){
+            MGPanel.this.run();
+            repaint();
+        }
+    }
 
+    public void run(){
+        if (timeM!=0){
+            timeM--;
+            if (timeM==0){
+                m = 0;
+                mx = (int)(Math.random() *550);
+                my = (int)(Math.random() *450);
+            }
+        }
     }
 
     public void paint(Graphics g){
@@ -95,8 +112,7 @@ public class MGPanel extends JPanel {
 
             if(px > mx - 50 && px < mx + 90 && py > my - 70 && py < my + 60){
                 m = 1;
-            }else{
-                m = 0;
+                timeM = 30;
             }
             repaint();
         }
@@ -106,19 +122,16 @@ public class MGPanel extends JPanel {
             px = me.getX() - 100;
             py = me.getY() - 100;
             m = 0;
-            repaint();
         }
 
         public void mouseMoved(MouseEvent me){
             px = me.getX() - 100;
             py = me.getY() - 100;
-            repaint();
         }
 
         public void mouseDragged(MouseEvent me){
             px = me.getX() - 100;
             py = me.getY() - 100;
-            repaint();
         }
     }
 
