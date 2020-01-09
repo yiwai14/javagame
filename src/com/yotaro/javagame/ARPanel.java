@@ -49,11 +49,11 @@ public class ARPanel extends JPanel {
             imageShips[0] = ImageIO.read(is0);
             is0.close();
 
-            InputStream is1 = this.getClass().getResourceAsStream("image/imageShip1.gif");
+            InputStream is1 = this.getClass().getResourceAsStream("image/imageShipR.gif");
             imageShips[0] = ImageIO.read(is1);
             is1.close();
 
-            InputStream is2 = this.getClass().getResourceAsStream("image/imageShip2.gif");
+            InputStream is2 = this.getClass().getResourceAsStream("image/imageShipL.gif");
             imageShips[0] = ImageIO.read(is2);
             is2.close();
 
