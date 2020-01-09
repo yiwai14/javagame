@@ -28,9 +28,9 @@ public class ARPanel extends JPanel {
     //timer
     private java.util.Timer timerThis = null;
 
-    //time
+    //playing time
     private int time = 0;
-    
+
     public ARPanel(){
         super();
 
