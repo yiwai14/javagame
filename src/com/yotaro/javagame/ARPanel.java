@@ -31,6 +31,7 @@ public class ARPanel extends JPanel {
     //time
     private int time = 0;
 
+    
     public ARPanel(){
         super();
 

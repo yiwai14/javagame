@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,7 @@
       <workItem from="1578464449953" duration="2216000" />
       <workItem from="1578532908928" duration="1052000" />
       <workItem from="1578534017899" duration="27000" />
-      <workItem from="1578534056785" duration="3129000" />
+      <workItem from="1578534056785" duration="3262000" />
     </task>
     <servers />
   </component>
