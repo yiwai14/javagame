@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/ARFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/ARFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,12 +42,12 @@
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Downloads/AR01/ARPanel.java" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/com/yotaro/javagame/image" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/com/yotaro/javagame/image" />
       <recent name="$PROJECT_DIR$/src/com/yotaro/javagame" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/yotaro/javagame/image" />
     </key>
   </component>
   <component name="RunManager">
@@ -100,7 +96,7 @@
       <workItem from="1578532908928" duration="1052000" />
       <workItem from="1578534017899" duration="27000" />
       <workItem from="1578534056785" duration="4120000" />
-      <workItem from="1578556974596" duration="794000" />
+      <workItem from="1578556974596" duration="1472000" />
     </task>
     <servers />
   </component>
