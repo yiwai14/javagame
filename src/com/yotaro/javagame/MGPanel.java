@@ -55,6 +55,14 @@ public class MGPanel extends JPanel {
     //game over
     private Font fontGameOver = new Font("MS ゴシック", Font.BOLD, 48);
 
+    //BGM
+    private KSoundMidi midiMoleDance = null;
+
+    //Sound effect
+    private KSoundWave waveMoleAppear = null;
+    private KSoundWave waveHammerMiss = null;
+    private KSoundWave waveHammerHit = null;
+
     public MGPanel(){
         super();
 
@@ -92,6 +100,14 @@ public class MGPanel extends JPanel {
             imageBackground = ImageIO.read(isBackground);
             isBackground.close();
 
+            //create BGM
+            midiMoleDance = new KSoundMidi(this, "sound/MoguraDance.mid", false);
+
+            //create sound effect
+            waveMoleAppear = new KSoundWave(this, "sound/MoguraDeru.wav", false);
+            waveHammerMiss = new KSoundWave(this, "sound/PicoHammerMiss.wav", false);
+            waveHammerHit = new KSoundWave(this, "sound/PicoHammerHit.wav", false);
+
             //initialise
             init();
 
@@ -113,6 +129,10 @@ public class MGPanel extends JPanel {
         m = 0;
         score = 0;
         time = 1859;
+
+        //BGM initialise and start
+        midiMoleDance.init();
+        midiMoleDance.start();
     }//end init
 
     private class TimerActionTimerTask extends TimerTask{
@@ -141,6 +161,7 @@ public class MGPanel extends JPanel {
                         m = 0;
                         mx = (int)(Math.random() *550);
                         my = (int)(Math.random() *450);
+                        waveMoleAppear.start();
                     }
                 }
                 break;
@@ -201,6 +222,9 @@ public class MGPanel extends JPanel {
                         m = 1;
                         timeM = 30;
                         score++;
+                        waveHammerHit.start();
+                    }else{
+                        waveHammerMiss.start();
                     }
                 }
             }
