@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/image/imageShip0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/image/imageShipL.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/image/imageShipR.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/Background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/M00.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/M01.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/MGPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/MGPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/PH00.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/PH01.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/M00.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/M01.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/PH00.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/PH01.gif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +96,7 @@
       <workItem from="1578464449953" duration="2216000" />
       <workItem from="1578532908928" duration="1052000" />
       <workItem from="1578534017899" duration="27000" />
-      <workItem from="1578534056785" duration="2530000" />
+      <workItem from="1578534056785" duration="3129000" />
     </task>
     <servers />
   </component>
