@@ -4,9 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ARFrame extends JFrame {
+
     private ARPanel panel = null;
 
     public ARFrame(){
+
         super();
 
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,5 +22,8 @@ public class ARFrame extends JFrame {
         super.setVisible(true);
 
         super.pack();
+
+        super.requestFocus();
+        panel.requestFocus();
     }
 }

@@ -82,7 +82,7 @@ public class ARPanel extends JPanel {
     }//end init
 
     public void run(){
-        
+
         time++;
 
         //ship move timing
@@ -105,7 +105,7 @@ public class ARPanel extends JPanel {
             x = x + mx;
 
             //at the left most
-            if(x<0){
+            if(x < 0){
                 x = 0;
                 mx = 0;
             //at the right most
@@ -125,6 +125,7 @@ public class ARPanel extends JPanel {
     }//end paint
 
     public boolean isKeyCodePressed(int keyCode){
+
         return keyPressTable[keyCode];
     }//end iskeyCodePressed
 
