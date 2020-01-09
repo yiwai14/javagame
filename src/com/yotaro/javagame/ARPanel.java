@@ -21,7 +21,7 @@ public class ARPanel extends JPanel {
     //velocity
     private int mx = 0;
 
-    //space ship
+    //space ship info
     private BufferedImage[] imageShips = null;
     private int direction = 0;
 
