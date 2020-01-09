@@ -75,28 +75,28 @@ public class MGPanel extends JPanel {
 
             //hammer
             imagePHs = new BufferedImage[2];
-            InputStream isPH00 = this.getClass().getResourceAsStream("PH00.gif");
+            InputStream isPH00 = this.getClass().getResourceAsStream("image/PH00.gif");
             imagePHs[0] = ImageIO.read(isPH00);
             isPH00.close();
 
             //hammer HIT
-            InputStream isPH01 = this.getClass().getResourceAsStream("PH01.gif");
+            InputStream isPH01 = this.getClass().getResourceAsStream("image/PH01.gif");
             imagePHs[1] = ImageIO.read(isPH01);
             isPH01.close();
 
             //mole
             imageMs = new BufferedImage[2];
-            InputStream isML00 = this.getClass().getResourceAsStream("M00.gif");
+            InputStream isML00 = this.getClass().getResourceAsStream("image/M00.gif");
             imageMs[0] = ImageIO.read(isML00);
             isML00.close();
 
             //mole hit
-            InputStream isML01 = this.getClass().getResourceAsStream("M01.gif");
+            InputStream isML01 = this.getClass().getResourceAsStream("image/M01.gif");
             imageMs[1] = ImageIO.read(isML01);
             isML01.close();
 
             //load background
-            InputStream isBackground = this.getClass().getResourceAsStream("Background.jpg");
+            InputStream isBackground = this.getClass().getResourceAsStream("image/Background.jpg");
             imageBackground = ImageIO.read(isBackground);
             isBackground.close();
 
