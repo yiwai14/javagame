@@ -32,6 +32,7 @@ public class ARPanel extends JPanel {
     private int time = 0;
 
     public ARPanel(){
+
         super();
 
         try{
@@ -50,11 +51,11 @@ public class ARPanel extends JPanel {
             is0.close();
 
             InputStream is1 = this.getClass().getResourceAsStream("image/imageShipR.gif");
-            imageShips[0] = ImageIO.read(is1);
+            imageShips[1] = ImageIO.read(is1);
             is1.close();
 
             InputStream is2 = this.getClass().getResourceAsStream("image/imageShipL.gif");
-            imageShips[0] = ImageIO.read(is2);
+            imageShips[2] = ImageIO.read(is2);
             is2.close();
 
             //create key adapter and add it to panel
@@ -81,6 +82,7 @@ public class ARPanel extends JPanel {
     }//end init
 
     public void run(){
+        
         time++;
 
         //ship move timing
