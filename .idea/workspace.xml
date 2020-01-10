@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/image/mole-slap-game.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/image/mole-slap.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +100,7 @@
       <workItem from="1578534017899" duration="27000" />
       <workItem from="1578534056785" duration="4120000" />
       <workItem from="1578556974596" duration="4910000" />
-      <workItem from="1578633581590" duration="1109000" />
+      <workItem from="1578633581590" duration="1241000" />
     </task>
     <servers />
   </component>
