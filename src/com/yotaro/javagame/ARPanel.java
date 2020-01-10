@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.TimerTask;
@@ -12,42 +13,47 @@ import java.util.TimerTask;
 public class ARPanel extends JPanel {
 
     //keyboard adapter
-    private MGKeyAdapter mgka = null;
-    private boolean[] keyPressTable = null;
+    private     MGKeyAdapter        mgka                = null;
+    private     boolean[]           keyPressTable       = null;
 
     //background
-    private BufferedImage imageBackground1 = null;
-    private BufferedImage imageBackground2 = null;
+    private     BufferedImage       imageBackground1    = null;
+    private     BufferedImage       imageBackground2    = null;
     //asteroid
-    private BufferedImage imageAsteroid = null;
+    private     BufferedImage       imageAsteroid       = null;
     //space ship
-    private BufferedImage[] imageShips = null;
-    private int direction = 0;
+    private     BufferedImage[]     imageShips          = null;
+    private     int                 direction           = 0;
 
     //background position
-    private int yBackground1 = 0;
-    private int yBackground2 = 0;
+    private     int                 yBackground1        = 0;
+    private     int                 yBackground2        = 0;
     //asteroid position
-    private int[] xAsteroids = new int[100];
-    private int[] yAsteroids = new int[100];
+    private     int[]               xAsteroids          = new int[100];
+    private     int[]               yAsteroids          = new int[100];
     //space ship position
-    private int x = 0;
-    private int y = 0;
+    private     int                 x                   = 0;
+    private     int                 y                   = 0;
 
-    //asteroid velocity
-    private int[] mxAsteroids = new int[100];
-    private int[] myAsteroids = new int[100];
-    //space ship velocity
-    private int mx = 0;
+    //asteroid speed
+    private     int[]               mxAsteroids         = new int[100];
+    private     int[]               myAsteroids         = new int[100];
+
+    //space ship speed
+    private     int                 mx                  = 0;
 
     //asteroid size
-    private int[] widthAsteroids = new int[100];
+    private     int[]               widthAsteroids      = new int[100];
+
+    //asteroid angle
+    private     int[]               angleAsteroids      = new int[100];
+    private     int[]               velocityAsteroids   = new int[100];
 
     //timer
-    private java.util.Timer timerThis = null;
+    private     java.util.Timer     timerThis           = null;
 
     //playing time
-    private int time = 0;
+    private     int                 time                = 0;
 
     public ARPanel(){
 
@@ -181,12 +187,14 @@ public class ARPanel extends JPanel {
                     }
                 }
 
-                //initialize asteroids
+                //initialize asteroid's condition
                 widthAsteroids[pos] = (int)(Math.random() * 150) + 30;
                 xAsteroids[pos] = (int)(Math.random() * 800);
                 yAsteroids[pos] = -widthAsteroids[pos];
                 mxAsteroids[pos] = 3 - (int)(Math.random() * 6);
                 myAsteroids[pos] = 5 - (int)(Math.random() * 5);
+                angleAsteroids[pos] = (int)(Math.random() * 300);
+                velocityAsteroids[pos] = (int)(Math.random() * 10);
             }
 
             //move asteroid
@@ -195,6 +203,7 @@ public class ARPanel extends JPanel {
                     //move down
                     xAsteroids[i] = xAsteroids[i] + mxAsteroids[i];
                     yAsteroids[i] = yAsteroids[i] + myAsteroids[i];
+                    angleAsteroids[i] = angleAsteroids[i] + velocityAsteroids[i];
 
                     //once its outside
                     if(yAsteroids[i] > 800){
@@ -209,8 +218,12 @@ public class ARPanel extends JPanel {
     }//end run
 
     public void paint(Graphics g){
-        g.setColor(Color.black);
-        g.fillRect(0, 0, 800, 800);
+
+        //get Graphics2D
+        Graphics2D g2 = (Graphics2D) g;
+
+        //get Transform
+        AffineTransform af = new AffineTransform();
 
         //background1
         g.drawImage(imageBackground1, 0, yBackground1, 800, 800 , this);
@@ -221,12 +234,34 @@ public class ARPanel extends JPanel {
         g.drawImage(imageBackground2, 0, yBackground2 + 800, 800, 800 , this);
 
         for (int i = 0; i < 100; i++){
+
             if(yAsteroids[i] != -9999){
-                g.drawImage(imageAsteroid, xAsteroids[i], yAsteroids[i], widthAsteroids[i], widthAsteroids[i], this);
+
+                //rotation
+                double radAsteroid = angleAsteroids[i] * Math.PI/180;
+                //calculate center of mass position
+                double xAsteroid = (double)xAsteroids[i] + widthAsteroids[i] / 2;
+                double yAsteroid = (double)yAsteroids[i] + widthAsteroids[i] / 2;
+
+                //add rotation and define position
+                af.setToRotation(radAsteroid, xAsteroid, yAsteroid);
+
+                //set transform
+                g2.setTransform(af);
+
+                //draw asteroid
+                g2.drawImage(imageAsteroid, xAsteroids[i], yAsteroids[i], widthAsteroids[i], widthAsteroids[i], this);
             }
         }
 
-        g.drawImage(imageShips[direction], x, y, 32, 40, this);
+        //change back the rotation and position
+        af.setToRotation(0d, 0d, 0d);
+
+        //set transform
+        g2.setTransform(af);
+
+        //draw space ship
+        g2.drawImage(imageShips[direction], x, y, 32, 40, this);
     }//end paint
 
     public boolean isKeyCodePressed(int keyCode){

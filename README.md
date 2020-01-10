@@ -11,3 +11,8 @@ This is based on famous Japanese arcade game called Mogura-Tataki, meaning mole 
 ![alt text](src/com/yotaro/javagame/image/mole-slap.jpeg)
 
 # 2. Asteroid
+
+The first rule of Newton is implemented. 
+In an inertial frame of reference, an object either remains at rest or continues to move at a constant velocity, unless acted upon by a force.
+The ship won't stop until you apply thrust by keep thrusting other way or hit the end of screen.
+I used a picture of Hyperion, a satellite of Satan as asteroid.
