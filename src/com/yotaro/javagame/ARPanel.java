@@ -11,19 +11,37 @@ import java.util.TimerTask;
 
 public class ARPanel extends JPanel {
 
+    //keyboard adapter
     private MGKeyAdapter mgka = null;
     private boolean[] keyPressTable = null;
 
+    //background
+    private BufferedImage imageBackground1 = null;
+    private BufferedImage imageBackground2 = null;
+    //asteroid
+    private BufferedImage imageAsteroid = null;
+    //space ship
+    private BufferedImage[] imageShips = null;
+    private int direction = 0;
+
+    //background position
+    private int yBackground1 = 0;
+    private int yBackground2 = 0;
+    //asteroid position
+    private int[] xAsteroids = new int[100];
+    private int[] yAsteroids = new int[100];
     //space ship position
     private int x = 0;
     private int y = 0;
 
-    //velocity
+    //asteroid velocity
+    private int[] mxAsteroids = new int[100];
+    private int[] myAsteroids = new int[100];
+    //space ship velocity
     private int mx = 0;
 
-    //space ship info
-    private BufferedImage[] imageShips = null;
-    private int direction = 0;
+    //asteroid size
+    private int[] widthAsteroids = new int[100];
 
     //timer
     private java.util.Timer timerThis = null;
@@ -44,19 +62,37 @@ public class ARPanel extends JPanel {
             //create key press condition list
             keyPressTable = new boolean[256];
 
-            //load space ship image
+            //load space ship image - straight
             imageShips = new BufferedImage[3];
             InputStream is0 = this.getClass().getResourceAsStream("image/imageShip0.gif");
             imageShips[0] = ImageIO.read(is0);
             is0.close();
 
+            //load space ship image - right
             InputStream is1 = this.getClass().getResourceAsStream("image/imageShipR.gif");
             imageShips[1] = ImageIO.read(is1);
             is1.close();
 
+            //load space ship image - left
             InputStream is2 = this.getClass().getResourceAsStream("image/imageShipL.gif");
             imageShips[2] = ImageIO.read(is2);
             is2.close();
+
+            //load background 1
+            InputStream isBackground1 = this.getClass().getResourceAsStream("image/imageBackground1.gif");
+            imageBackground1 = ImageIO.read(isBackground1);
+            isBackground1.close();
+
+            //load background 2
+            InputStream isBackground2 = this.getClass().getResourceAsStream("image/imageBackground2.gif");
+            imageBackground2 = ImageIO.read(isBackground2);
+            isBackground2.close();
+            
+            //load asteroid
+            InputStream isA = this.getClass().getResourceAsStream("image/imageAsteroid.gif");
+            imageAsteroid = ImageIO.read(isA);
+            isA.close();
+
 
             //create key adapter and add it to panel
             mgka = new MGKeyAdapter();
