@@ -87,7 +87,7 @@ public class ARPanel extends JPanel {
             InputStream isBackground2 = this.getClass().getResourceAsStream("image/imageBackground2.gif");
             imageBackground2 = ImageIO.read(isBackground2);
             isBackground2.close();
-            
+
             //load asteroid
             InputStream isA = this.getClass().getResourceAsStream("image/imageAsteroid.gif");
             imageAsteroid = ImageIO.read(isA);
@@ -115,13 +115,34 @@ public class ARPanel extends JPanel {
         time = 0;
         x = 384;
         y = 640;
+
+        //init asteroid (cant see)
+        for(int i = 0; i<100; i++){
+            yAsteroids[i] = -9999;
+        }
     }//end init
 
     public void run(){
 
         time++;
 
-        //ship move timing
+        //background 1 move frequency
+        if(time % 5 == 0){
+            yBackground1++;
+            if(yBackground1 > 0){
+                yBackground1 = -800;
+            }
+        }
+
+        //background2 move frequency
+        if(time % 2 == 0){
+            yBackground2 = yBackground2 + 1;
+            if(yBackground2 > 0){
+                yBackground2 = -800;
+            }
+        }
+
+        //ship move frequency
         if(time % 6 == 0){
             direction = 0;
 
@@ -149,6 +170,39 @@ public class ARPanel extends JPanel {
                 x = this.getWidth() - 32;
                 mx = 0;
             }
+
+            //create asteroid
+            if(Math.random() < 0.02){
+                int pos = -1;
+                for(int i = 0; i < 100; i++){
+                    if(yAsteroids[i] == -9999){
+                        pos = i;
+                        break;
+                    }
+                }
+
+                //initialize asteroids
+                widthAsteroids[pos] = (int)(Math.random() * 150) + 30;
+                xAsteroids[pos] = (int)(Math.random() * 800);
+                yAsteroids[pos] = -widthAsteroids[pos];
+                mxAsteroids[pos] = 3 - (int)(Math.random() * 6);
+                myAsteroids[pos] = 5 - (int)(Math.random() * 5);
+            }
+
+            //move asteroid
+            for(int i = 0; i < 100; i++){
+                if(yAsteroids[i] != -9999){
+                    //move down
+                    xAsteroids[i] = xAsteroids[i] + mxAsteroids[i];
+                    yAsteroids[i] = yAsteroids[i] + myAsteroids[i];
+
+                    //once its outside
+                    if(yAsteroids[i] > 800){
+                        yAsteroids[i] = -9999;
+                    }
+                }
+            }
+
         }else{
             repaint();
         }
@@ -157,6 +211,21 @@ public class ARPanel extends JPanel {
     public void paint(Graphics g){
         g.setColor(Color.black);
         g.fillRect(0, 0, 800, 800);
+
+        //background1
+        g.drawImage(imageBackground1, 0, yBackground1, 800, 800 , this);
+        g.drawImage(imageBackground1, 0, yBackground1 + 800, 800, 800 , this);
+
+        //background2
+        g.drawImage(imageBackground2, 0, yBackground2, 800, 800 , this);
+        g.drawImage(imageBackground2, 0, yBackground2 + 800, 800, 800 , this);
+
+        for (int i = 0; i < 100; i++){
+            if(yAsteroids[i] != -9999){
+                g.drawImage(imageAsteroid, xAsteroids[i], yAsteroids[i], widthAsteroids[i], widthAsteroids[i], this);
+            }
+        }
+
         g.drawImage(imageShips[direction], x, y, 32, 40, this);
     }//end paint
 
