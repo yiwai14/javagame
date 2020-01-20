@@ -12,6 +12,26 @@ import java.util.TimerTask;
 
 public class ARPanel extends JPanel {
 
+    //game phase
+    private int phase = 0;
+    private final int               PHASE_TITLE         = 0;
+    private final int               PHASE_GAMESTART     = 1;
+    private final int               PHASE_GAME          = 2;
+    private final int               PHASE_CLASH         = 3;
+    private final int               PHASE_GAMEOVER      = 4;
+
+    //font
+    private final Font              FONT_TEXT           = new Font("MSゴシック", Font.PLAIN, 16);
+    private final Font              FONT_GAMEOVER       = new Font("MSゴシック", Font.BOLD, 24);
+
+    //score
+    private     int                 score               = 0;
+    private     int                 scoreHigh           = 30000;
+    private     int                 my                  = 0;
+
+    //time
+    private     int                 timeWork            = 0;
+
     //keyboard adapter
     private     MGKeyAdapter        mgka                = null;
     private     boolean[]           keyPressTable       = null;
@@ -111,6 +131,9 @@ public class ARPanel extends JPanel {
             timerThis = new java.util.Timer();
             timerThis.scheduleAtFixedRate(new TimerActionListener(), 1000l, 8l);
 
+            //start game
+            start();
+
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "ERROR: " + e.toString());
@@ -118,15 +141,27 @@ public class ARPanel extends JPanel {
     }//end of ARPanel
 
     public void init(){
+
         time = 0;
+
+        score = 0;
+
         x = 384;
         y = 640;
+
+        mx = 0;
+        my = 0;
 
         //init asteroid (cant see)
         for(int i = 0; i<100; i++){
             yAsteroids[i] = -9999;
         }
     }//end init
+
+    public void start(){
+
+        phase = PHASE_GAME;
+    }//end start
 
     public void run(){
 
@@ -165,17 +200,51 @@ public class ARPanel extends JPanel {
 
         //move timing
         if(time % 2 == 0){
-            x = x + mx;
 
-            //at the left most
-            if(x < 0){
-                x = 0;
-                mx = 0;
-            //at the right most
-            }else if (x > this.getWidth() - 32){
-                x = this.getWidth() - 32;
-                mx = 0;
+            if(phase == PHASE_GAME){
+                score = score + 10;
+
+                //update the highest score recorded
+                if(score > scoreHigh){
+                    scoreHigh = score;
+                }
+
+                x = x + mx;
+
+                //at left most
+                if(x < 0){
+                    x = 0;
+                    mx = 0;
+
+                //at right most
+                }else if(x > this.getWidth() - 32){
+                    x = this.getWidth() - 32;
+                    mx = 0;
+                }
+
+            }else if(phase == PHASE_CLASH){
+                timeWork++;
+
+                x = x + mx;
+                y = y + my;
+
+                //wait for 2 seconds
+                if(timeWork == 120){
+                    timeWork = 0;
+                    phase = PHASE_GAMEOVER;
+                }
+
+            }else if(phase == PHASE_GAMEOVER){
+                timeWork++;
+
+                //wait for 5 seconds and restart the game
+                if (timeWork == 300){
+                    init();
+
+                    start();
+                }
             }
+
 
             //create asteroid
             if(Math.random() < 0.02){
@@ -205,6 +274,17 @@ public class ARPanel extends JPanel {
                     yAsteroids[i] = yAsteroids[i] + myAsteroids[i];
                     angleAsteroids[i] = angleAsteroids[i] + velocityAsteroids[i];
 
+                    //hit judgement
+                    if(xAsteroids[i] < x + 10 && x + 32 - 10 < xAsteroids[i] + widthAsteroids[i]
+                    && yAsteroids[i] < y + 20 && y + 40 - 20 < yAsteroids[i] + widthAsteroids[i]){
+                        mx = mxAsteroids[i];
+                        my = myAsteroids[i];
+
+                        timeWork = 0;
+
+                        phase = PHASE_CLASH;
+                    }
+
                     //once its outside
                     if(yAsteroids[i] > 800){
                         yAsteroids[i] = -9999;
@@ -212,7 +292,9 @@ public class ARPanel extends JPanel {
                 }
             }
 
-        }else{
+        }
+
+        if(time % 2 == 1){
             repaint();
         }
     }//end run
@@ -262,6 +344,18 @@ public class ARPanel extends JPanel {
 
         //draw space ship
         g2.drawImage(imageShips[direction], x, y, 32, 40, this);
+
+        //draw scoring
+        g2.setColor(Color.lightGray);
+        g2.setFont(FONT_TEXT);
+        g2.drawString("SCORE " + score, 100, 20);
+        g2.drawString("HIGH-SCORE" + scoreHigh, 500, 20);
+
+        //game over
+        if(phase == PHASE_GAMEOVER){
+            g2.setFont(FONT_GAMEOVER);
+            g2.drawString("G A M E   O V E R", 300, 500);
+        }
     }//end paint
 
     public boolean isKeyCodePressed(int keyCode){
