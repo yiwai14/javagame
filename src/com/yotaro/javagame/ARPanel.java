@@ -75,6 +75,17 @@ public class ARPanel extends JPanel {
     //playing time
     private     int                 time                = 0;
 
+    //BGM
+    private     int                 posBgm              = 0;
+    private     int                 timeBgm             = 0;
+    private     int                 timeBgmNext         = 0;
+
+    //Sound effect
+    private     KSoundWave[]        waveSpaces          = null;
+    private     KSoundWave          waveGetReady        = null;
+    private     KSoundWave          waveClash           = null;
+    private     KSoundWave          waveGameOver        = null;
+
     public ARPanel(){
 
         super();
@@ -119,6 +130,14 @@ public class ARPanel extends JPanel {
             imageAsteroid = ImageIO.read(isA);
             isA.close();
 
+            //load sound effect
+            waveSpaces = new KSoundWave[4];
+            waveSpaces[0] = new KSoundWave(this, "sound/waveSpace0.wav", false);
+            waveSpaces[1] = new KSoundWave(this, "sound/waveSpace1.wav", false);
+            waveSpaces[2] = new KSoundWave(this, "sound/waveSpace2.wav", false);
+            waveSpaces[3] = new KSoundWave(this, "sound/waveSpace3.wav", false);
+            waveClash = new KSoundWave(this, "sound/waveClash.wav", false);
+            waveGameOver = new KSoundWave(this, "sound/waveGameOver.wav", false);
 
             //create key adapter and add it to panel
             mgka = new MGKeyAdapter();
@@ -151,6 +170,9 @@ public class ARPanel extends JPanel {
 
         mx = 0;
         my = 0;
+
+        timeBgm = 0;
+        timeBgmNext = 0;
 
         //init asteroid (cant see)
         for(int i = 0; i<100; i++){
@@ -296,6 +318,18 @@ public class ARPanel extends JPanel {
 
         if(time % 2 == 1){
             repaint();
+        }
+
+        timeBgm++;
+
+        //sound effect
+        if(timeBgm > timeBgmNext){
+            waveSpaces[posBgm].start();
+            //time for BGM
+            timeBgm = 0;
+            //time for the next BGM
+            timeBgmNext = (int)(Math.random() * 840) + 420;
+            posBgm = (posBgm + 1 + (int)(Math.random() * 3)) % 4;
         }
     }//end run
 
