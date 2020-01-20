@@ -7,7 +7,7 @@ The moles appear randomly in the map and they look painful once hit.
 
 ![alt text](src/com/yotaro/javagame/image/mole-slap-play.png)
 
-This is based on famous Japanese arcade game called Mogura-Tataki, meaning mole slap.
+This is based on a Japanese arcade game called Mogura-Tataki, meaning mole slap.
 ![alt text](src/com/yotaro/javagame/image/mole-slap-real.jpg)
 
 # 2. Asteroid
