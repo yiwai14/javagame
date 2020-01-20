@@ -18,4 +18,4 @@ The rule says: in an inertial frame of reference, an object either remains at re
 The ship won't stop until you apply thrust to the other way or hit the end of screen.
 Picture of Hyperion, a satellite of Satan is used as image of flying asteroids even though it's not technically an asteroid.
 
-![alt text](src/com/yotaro/javagame/image/asteroid-play-pic.png)
+![alt text](src/com/yotaro/javagame/image/asteroid-play-pic.png "w" {width=150px})

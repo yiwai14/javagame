@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1529f42-91d0-41b4-a886-897921b387e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/image/asteroid-play-pic.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/V_GetReady.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/midiGame.mid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/waveClash.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/waveGameOver.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/waveGetReady.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/waveSpace0.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/waveSpace1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/waveSpace2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/waveSpace3.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/宇宙無線Vol50.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/警告.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/sound/鼓動.mid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/ARPanel$MGKeyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/ARPanel$MGKeyAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/ARPanel$TimerActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/ARPanel$TimerActionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/ARPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javaGame/com/yotaro/javagame/ARPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/yotaro/javagame/ARPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +104,7 @@
       <workItem from="1578633581590" duration="3898000" />
       <workItem from="1579220985153" duration="1301000" />
       <workItem from="1579480271462" duration="4479000" />
-      <workItem from="1579501483084" duration="347000" />
+      <workItem from="1579501483084" duration="1012000" />
     </task>
     <servers />
   </component>
