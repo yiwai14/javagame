@@ -5,10 +5,10 @@ This is a personal project to build a simple game using java.
 In this game, player tries to slap as many moles as they can within 30 seconds.
 The moles appear randomly in the map and they look painful once hit.
 
-![alt text](src/com/yotaro/javagame/image/mole-slap-game.png)
+![alt text](src/com/yotaro/javagame/image/mole-slap-play.png)
 
 This is based on famous Japanese arcade game called Mogura-Tataki, meaning mole slap.
-![alt text](src/com/yotaro/javagame/image/mole-slap.jpeg)
+![alt text](src/com/yotaro/javagame/image/mole-slap-real.jpeg)
 
 # 2. Asteroid
 The game is a zen style dodging game. 
